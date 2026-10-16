@@ -13,15 +13,6 @@
   <img src="https://github.com/salmoza/MailServer/blob/main/assets/Heads%20Up%20Delivery%20GIF%20by%20Luke%20Alexander.gif?raw=true" width="500"/>
 </p>
 
-
-<h2 align="center">🚀 Project Preview</h2>
-
-<p align="center">
-  <img src="https://github.com/salmoza/MailServer/blob/main/assets/Screenshot%202026-02-06%20173420.png?raw=true" width="800"/>
-</p>
-
-
-
 A modern full-stack web-based mail application built using **Spring Boot** and **Angular**, designed to simulate real-world email platforms while applying advanced software engineering principles and design patterns.
 
 ---
@@ -33,6 +24,11 @@ The Web-Based Mail System is a full-stack email management platform that allows 
 The application includes advanced capabilities such as filtering, sorting strategies, draft snapshots, attachment management, and customizable folders.
 
 ---
+
+## Project Demo
+
+https://github.com/user-attachments/assets/43d64e0a-c7b0-4ebb-bca6-74a259d2fece
+
 
 ## 🚀 Features
 
