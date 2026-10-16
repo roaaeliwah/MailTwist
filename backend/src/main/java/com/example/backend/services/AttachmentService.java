@@ -26,7 +26,7 @@ public class AttachmentService {
     private final AttachmentMapper attachmentMapper;
     private final MailRepo mailRepo;
     private final AttachmentsRepo attachmentsRepo;
-    private static final String Attachment_dir = "C:\\Users\\abdel\\Downloads\\Server";
+    private static final String Attachment_dir = "{YOUR_FILE_PATH}";
     @Autowired
     public AttachmentService(AttachmentMapper attachmentMapper, MailRepo mailRepo, AttachmentsRepo attachmentsRepo) {
         this.attachmentMapper = attachmentMapper;
@@ -69,26 +69,26 @@ public class AttachmentService {
     }
 
     public String DeleteAttachment(String id) {
-       Optional<Attachment> attop = attachmentsRepo.findById(id);
-       if(attop.isEmpty()){
-           return "not found";
-       }
-       Attachment att = attop.get();
-       Mail parent = att.getMail();
-       if(parent != null){
-           parent.getAttachments().remove(att);
-           mailRepo.save(parent);
-       }
-       att.setMail(null);
-       Path filePath = Paths.get(att.getFilePath());
-       try{
-           if(Files.deleteIfExists(filePath)){
-               System.out.println("Deleted physically");
-           }
-       }catch (IOException e){
-           System.err.println("couldn't delete it physically");
-       }
-       attachmentsRepo.delete(att);
+        Optional<Attachment> attop = attachmentsRepo.findById(id);
+        if(attop.isEmpty()){
+            return "not found";
+        }
+        Attachment att = attop.get();
+        Mail parent = att.getMail();
+        if(parent != null){
+            parent.getAttachments().remove(att);
+            mailRepo.save(parent);
+        }
+        att.setMail(null);
+        Path filePath = Paths.get(att.getFilePath());
+        try{
+            if(Files.deleteIfExists(filePath)){
+                System.out.println("Deleted physically");
+            }
+        }catch (IOException e){
+            System.err.println("couldn't delete it physically");
+        }
+        attachmentsRepo.delete(att);
         return "deleted";
     }
     /*public Path getfilePath(String attid){

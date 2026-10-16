@@ -111,6 +111,28 @@ Backend runs on:
 http://localhost:8080/
 ```
 
+#### Attachments
+
+Before sending attachments, configure the storage directory in
+`backend/src/main/resources/application.properties`:
+
+```properties
+attachment.storage-dir=C:/Users/<your-username>/Documents/MailTwistAttachments
+```
+
+Use a folder path that exists on your device and that the application can write to.
+On Windows, use forward slashes in the `.properties` file. The attachment path is
+read by `AttachmentService`; you do not need to edit the Java class itself.
+
+You can also configure the path with the `ATTACHMENT_STORAGE_DIR` environment
+variable. It takes precedence over the value in `application.properties`:
+
+```powershell
+$env:ATTACHMENT_STORAGE_DIR="C:\Users\<your-username>\Documents\MailTwistAttachments"
+```
+
+Restart the backend after changing the path.
+
 ---
 
 ### 🔹 Frontend (Angular)
